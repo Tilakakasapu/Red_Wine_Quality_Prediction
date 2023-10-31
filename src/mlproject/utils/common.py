@@ -46,3 +46,9 @@ def load_json(path:Path)->ConfigBox:
         content = json.load(f)
         logger.info(f"json file loaded successfully from:{path}")
         return ConfigBox(content)
+@ensure_annotations
+def save_json_1(path:Path,data:dict):
+    with open(path,"w") as f:
+        json.dump(data,f,indent=4)
+    logger.info(f"json file saved at: {path}")
+    
